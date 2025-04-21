@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0jjs55rlcx60"]
+
+[ext_resource type="Texture2D" uid="uid://hexgogc3usgh" path="res://assets/pixel_space_ship_no_flame.png" id="1_jy7xo"]
+[ext_resource type="Script" uid="uid://6oi0n0innxit" path="res://scenes/space_ship.gd" id="1_n0g6o"]
+[ext_resource type="Texture2D" uid="uid://cs8t76tc88cyk" path="res://assets/pixel_space_ship_with_small_flame.png" id="2_n0g6o"]
+[ext_resource type="Texture2D" uid="uid://c4mxbcnsl4sh4" path="res://assets/pixel_space_ship.png" id="3_4246p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n8dcg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jy7xo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_n0g6o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4246p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ivtut"]
+radius = 204.088
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_n0g6o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_n8dcg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ivtut")
