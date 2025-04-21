@@ -2,6 +2,8 @@
 
 **VoidPolit** is a 2D space adventure game where players control a spaceship navigating through the vast void of space, overcoming challenges, and engaging in intergalactic exploration and combat. As the captain of a spaceship, you must manage speed, direction, and combat strategy while piloting through various scenarios, battling enemies, and upgrading your ship to enhance your chances of survival in the unknown.
 
+![VoidPolitCover](https://github.com/user-attachments/assets/0867f45a-1686-42c2-884a-c484ccf5b32d)
+
 ## Features
 - **Space Combat:** Engage in thrilling dogfights with other spaceships.
 - **Space Exploration:** Travel through different regions of space, discovering new environments and challenges.
