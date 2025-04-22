@@ -6,6 +6,9 @@ const MAX_SPEED = 600.0
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+# Load bullet scene
+const Bullet = preload("res://scenes/bullet_cb.tscn")
+
 var current_frame := 0
 var frame_timer := 0.0
 const FRAME_SPEED := 10.0  # Higher = faster transition
@@ -17,7 +20,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("ui_right"):
 		rotation += ROTATION_SPEED * delta
 
-	var forward = Vector2.RIGHT.rotated(rotation - PI / 2)
+	var forward = Vector2.UP.rotated(rotation)
 
 	# --- THRUST ---
 	if Input.is_action_pressed("ui_up"):
@@ -33,8 +36,17 @@ func _physics_process(delta: float) -> void:
 	if velocity.length() > MAX_SPEED:
 		velocity = velocity.normalized() * MAX_SPEED
 
-	# --- MOVE ---
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
+
 	move_and_slide()
+
+
+func shoot():
+	var bullet = Bullet.instantiate()
+	bullet.global_position = position
+	bullet.global_rotation = rotation
+	get_parent().add_child(bullet)
 
 # --- Animate sprite based on thrust ---
 func update_thrust_animation(thrusting: bool, delta: float) -> void:

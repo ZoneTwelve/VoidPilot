@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bngva16orxrli"]
+[gd_scene load_steps=3 format=3 uid="uid://bngva16orxrli"]
 
 [ext_resource type="PackedScene" uid="uid://c0jjs55rlcx60" path="res://scenes/space_ship.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://csmcd854bdcfq" path="res://scenes/bullet_cb.tscn" id="2_yqjtg"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_uwrxv")]
+collision_mask = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.2, 0.2)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("2_yqjtg")]
+position = Vector2(10.2431, -10.4978)
